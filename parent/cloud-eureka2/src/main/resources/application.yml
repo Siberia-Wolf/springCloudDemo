@@ -1,0 +1,30 @@
+server:
+  port: 10087
+
+
+
+spring:
+  application:
+    name: eureka-server
+
+
+
+eureka:
+  client:
+    register-with-eureka: false  #false表示不向注册中心注册自己  我是一个eureka server
+    fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      #defaultZone: http://127.0.0.1:10086/eureka
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10088/eureka
+  server:
+    enable-self-preservation: true #false禁用 eureka 默认保护机制       true开启eureka 默认保护机制
+    wait-time-in-ms-when-sync-empty: 0
+  instance:
+    prefer-ip-address: true
+    #hostname:    # 根据域名查找服务主机
+    #ip-address: 127.0.0.1
+    instance-id: eureka-server10087
+
+
+
+
